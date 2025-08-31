@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Who’s Watching?</title>
+
+    <!-- GSAP (animation) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Typed.js (we'll use on epistle page only, but load globally if you want) -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page-landing">
+    <div id="landing-wrapper">
+      <!-- Intro logo / small cinematic moment -->
+      <div id="intro" class="intro-screen">
+        <div class="intro-logo">DIDAxZUKA</div>
+      </div>
+
+      <!-- Who's Watching screen -->
+      <main id="watch-screen" class="watch-screen hidden">
+        <h2 class="watch-title">Who’s watching?</h2>
+
+        <div class="profiles">
+          <!-- Dida profile: this is the main clickable card -->
+          <div class="profile-card her" id="her-card" onclick="goToEpistle()">
+            <div class="frame">
+              <img
+                src="assets/photo_2025-08-26_18-30-42.jpg"
+                alt="Dida"
+                class="profile-img"
+              />
+            </div>
+            <div class="name">Dida</div>
+          </div>
+
+          <!-- Zuka profile: smaller, subtle. -->
+          <div class="profile-card you" id="you-card">
+            <div class="frame">
+              <img
+                src="assets/photo_2025-08-31_01-35-38.jpg"
+                alt="Zuka"
+                class="profile-img"
+              />
+            </div>
+            <div class="name">Zuka</div>
+          </div>
+        </div>
+
+        <div class="hint">Tap your profile to start</div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+      // Start the landing intro animation then reveal the watch screen
+      document.addEventListener("DOMContentLoaded", () => {
+        // intro plays for ~2200ms then we reveal profiles
+        gsap
+          .timeline()
+          .from(".intro-logo", {
+            duration: 1.2,
+            opacity: 0,
+            scale: 0.8,
+            ease: "power3.out",
+          })
+          .to("#intro", {
+            duration: 0.8,
+            opacity: 0,
+            pointerEvents: "none",
+            onComplete: () => {
+              document.querySelector("#intro").classList.add("hidden");
+              const ws = document.getElementById("watch-screen");
+              ws.classList.remove("hidden");
+              gsap.from(".watch-title", {
+                duration: 0.8,
+                opacity: 0,
+                y: -30,
+                ease: "power3.out",
+              });
+              gsap.from(".profile-card", {
+                duration: 0.8,
+                opacity: 0,
+                y: 30,
+                stagger: 0.12,
+                ease: "back.out(1.2)",
+              });
+              gsap.from(".hint", {
+                duration: 0.9,
+                opacity: 0,
+                y: 10,
+                delay: 0.7,
+              });
+            },
+          });
+      });
+    </script>
+  </body>
+</html>
