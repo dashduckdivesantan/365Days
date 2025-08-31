@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Dida</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        color: pink;
+        font-family: "Courier New", monospace;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        overflow-y: auto;
+      }
+
+      #typed-output {
+        max-width: 750px;
+        line-height: 1.8;
+        white-space: pre-wrap; /* preserves line breaks */
+      }
+
+      #resolution {
+        margin-top: 30px;
+        opacity: 0; /* hidden initially */
+      }
+
+      #resolution button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        background: pink;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      #resolution button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="typed-output"></div>
+
+    <div id="resolution">
+      <button onclick="goToCelebration()">Celebrate</button>
+    </div>
+
+    <script>
+      const epistleText = `WELL, HEYYYYYYY DIDAAAAAAAAAAAA
+
+Congratufuckinlations to us baby, Mans wtffff. You didn’t leave me ke ? You didn’t get tired of me ke ? I didn’t wake up one morning and ghost because I was feeling undervalued ke ? 
+I don’t believe it. All those arguments and hours of airing didnt get to any of us ke ? Yeah, we are the GOATs. One year that doesn’t feel like I was checking calendar because it was slow and stressful. One year of feeling love again, 365 days of having someone to check in with.
+
+Looking back, no wait im not looking back , it’s on my palm. Everything we have experienced, I can recite off head. Maybe GCs aren’t so bad afterall because that’s where I found you, maybe Nigeria losing the AFCON wasn’t bad because that was like the first real convo we had, or wait maybe KJV is actually a beasted version of the Bible Or maybe captain whatever you were watching that Saturday is a good show afterall, maybe your WAEC period was more than Obj and theory ?. Maybe, maybe, maybe, too many maybes. You know one thing im sure about though ? My undying love for you. My heart beats for you and only you Dida. You never rushed me to do anything ? Even something as basic as calls. You waited till I was ready, you have a way of waiting for what you want, same way you didn’t give up on me because I was acting nonchalant in the early days of our love? (Or is it friendship). You always made me feel good, I can count how many times you’ve pissed me off in 365 days and it’s not even up to 10. Do you know how crazy that is to me ?
+You made me calm to an extent where I have never had the thought of raising my voice at you.
+Oh my Dida, you’re a queen and I was not tweaking when I called you my sunshine for the very first time.
+
+I have mad respect for you, “my girlfriend” is not just a mere title since youve held it, it’s peace, love, partnership and joy. You are my favorite person, NOBODY comes closest to. I can never take what you’ve given me for granted.
+
+Adunni mi, thank you for showing me love in a way I never imagined, thank you for restoring partial peace to my life, thank you for being my comforter.
+
+I am proud to call you mine, proud of us, our resilience and proud of you.
+
+I love you so much Dida, NOTHING, absolutely NOTHING and NOBODY on this earth can change that as long as we keep showing up for each other with loyalty and respect .
+
+Dunked on the first year, a lifetime to go 
+
+Zuka`;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var typed = new Typed("#typed-output", {
+          strings: [epistleText],
+          typeSpeed: 35,
+          backSpeed: 0,
+          smartBackspace: false,
+          loop: false,
+          showCursor: true,
+          cursorChar: "|",
+          onComplete: function () {
+            gsap.to("#resolution", { duration: 0.8, opacity: 1 });
+          },
+        });
+      });
+      function goToCelebration() {
+        gsap.to("body", {
+          duration: 0.9,
+          opacity: 0,
+          onComplete: function () {
+            location.href = "celebration.html";
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
